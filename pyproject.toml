@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "tiny-test-hatchery"
+version = "0.0.1"
+description = "Framework for generating test skeletons."
+
+license = "MIT"
+authors = ["Mislav Jaksic <jaksicmislav@gmail.com>"]
+maintainers = []
+readme = "README.md"
+
+homepage = "https://github.com/MislavJaksic/Tiny-Test-Hatchery"
+repository = "https://github.com/MislavJaksic/Tiny-Test-Hatchery"
+documentation = "https://github.com/MislavJaksic/Tiny-Test-Hatchery"
+
+keywords = []
+
+classifiers = []
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.22.0"
+loguru = "^0.5.3"
+
+[tool.poetry.dev-dependencies]
+pytest-cov = "^2.8.1"
+black = "^19.10b0"
+pytest = "^5.2"
+sphinx = "^2.3.1"
+
+[tool.poetry.scripts]
+tiny-test-hatchery = "tiny_test_hatchery.runner:run"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
