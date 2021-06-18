@@ -15,7 +15,7 @@ from tiny_test_hatchery import pytest_gen
 def main(args):
     """main() will be run if you run this script directly"""
     test_file_path = "test_pytest_gen.py"
-    program_file_path = "E:/GreatRepository/Publishing/GitHubRepositories/Tiny-Test-Hatchery/tiny_test_hatchery/pytest_gen.py"
+    program_file_path = "E:/GreatRepository/Publishing/GitHubRepositories/Selenium-Tutorial/selenium_tutorial/helper/crawler.py"
     pytest_gen.generate_test_file_from_file(test_file_path, program_file_path)
 
 
