@@ -129,3 +129,4 @@ dmypy.json
 
 # PyCharm IDE
 .idea/
+test_eggs.py
