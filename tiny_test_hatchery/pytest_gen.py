@@ -1,4 +1,5 @@
 import re
+from pathlib import Path
 from typing import Tuple, List
 
 from loguru import logger
@@ -32,7 +33,7 @@ class Function:
         )
 
 
-def generate_test_file_from_file(test_file_path: str, program_file_path: str):
+def generate_test_file_from_file(test_file_path: Path, program_file_path: Path):
     logger.info(
         log_message,
         "Generate test file here {} for program here {}".format(
@@ -45,7 +46,7 @@ def generate_test_file_from_file(test_file_path: str, program_file_path: str):
     create_function_test_file(functions, test_file_path)
 
 
-def get_functions(file_path: str) -> List[Function]:
+def get_functions(file_path: Path) -> List[Function]:
     functions = []
     with open(file_path, "r") as file:
         for line in file:
@@ -70,7 +71,7 @@ def parse_function_line(line: str) -> Function:
         return None  # ToDo do not return null!!!
 
 
-def create_function_test_file(functions: List[Function], file_path: str):
+def create_function_test_file(functions: List[Function], file_path: Path):
     with open(file_path, "w") as file:
         file.write("# Auto-generated pytest file\n")
         for function in functions:
@@ -80,7 +81,7 @@ def create_function_test_file(functions: List[Function], file_path: str):
             for param in function.parameters:
                 file.write("        {} = None\n".format(param))
             file.write(
-                "        assert class_under_test.{}({}) == None\n".format(
+                "        assert class_under_test.{}({}) == None\n\n".format(
                     function.snake_name, ", ".join(function.parameters)
                 )
             )
