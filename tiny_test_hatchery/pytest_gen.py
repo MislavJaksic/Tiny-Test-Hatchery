@@ -69,8 +69,5 @@ def create_function_test_file(functions: List[Function], file_path: Path):
             file.write("    def test_{}(self, class_under_test):\n".format(function.snake_name))
             for param in function.parameters:
                 file.write("        {} = None\n".format(param))
-            file.write(
-                "        assert class_under_test.{}({}) == None\n\n".format(
-                    function.snake_name, ", ".join(function.parameters)
-                )
-            )
+            file.write("        data = class_under_test.{}({})\n".format(function.snake_name, ", ".join(function.parameters)))
+            file.write("        assert data == None\n\n")
