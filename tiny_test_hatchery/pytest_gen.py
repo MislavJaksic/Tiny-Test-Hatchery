@@ -56,8 +56,14 @@ def parse_function_line(line: str) -> Function:
         function = Function(match.group(1), match.group(2))
         logger.info(log_message, object="line:{}, function:{}".format(line, str(function)), reason="Inspect", action="Parse line")
         return function
-    else:
-        return None  # ToDo do not return null!!!
+
+    match = re.search("^[\s]*async def (.*)\((.*)\).*:", line)
+    if match:
+        function = Function(match.group(1), match.group(2))
+        logger.info(log_message, object="line:{}, function:{}".format(line, str(function)), reason="Inspect", action="Parse line")
+        return function
+
+    return None  # ToDo do not return null!!!
 
 
 def create_function_test_file(functions: List[Function], file_path: Path):
