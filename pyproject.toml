@@ -23,12 +23,15 @@ loguru = "^0.5.3"
 
 [tool.poetry.dev-dependencies]
 pytest-cov = "^2.8.1"
-black = "^19.10b0"
+black = "^23.3.0"
 pytest = "^5.2"
 sphinx = "^2.3.1"
 
 [tool.poetry.scripts]
 tiny-test-hatchery = "tiny_test_hatchery.runner:run"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
 
 [build-system]
 requires = ["poetry>=0.12"]

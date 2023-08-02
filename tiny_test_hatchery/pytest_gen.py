@@ -41,7 +41,7 @@ def generate_test_file_from_file(test_file_path: Path, program_file_path: Path):
 
 def get_functions(file_path: Path) -> List[Function]:
     functions = []
-    with open(file_path, "r") as file:
+    with open(file_path, "r", encoding="utf-8") as file:
         for line in file:
             function = parse_function_line(line)
             if function:
